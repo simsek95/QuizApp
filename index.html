@@ -3,12 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="Quizapp/brain result.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>QuizApp</title>
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body onload="init()">
+    <nav class="navbar navbar-light bg-secondary">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-p h1">QuizApp</span> 
+      </div>
+    </nav>
+    <div class="container">
+
+      
+      <div class="dark-background hidden" id="endScreen">
+        <div class="card end-screen" >
+          <img src="img/lose.jpg" class="card-img-top rounded-circle" alt="" id="endImg">
+          <div class="card-body">
+            <h5 class="card-title" id="endText">Thats It!</h5>
+            <p class="card-text">You got <b id="achievedPointText">0</b> of <b id="totalPointsToGetText">5</b> questions right!</p>
+            <a href="#" class="btn btn-primary" onclick="replay()">Try again!</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-container" >
+        <img src="Quizapp Blue/Group 5.png" class="card-img-top" alt="...">
+
+        <div class="card-body">
+          <h5 class="card-title" id="questionText">Frage:</h5>
+          
+          <div class="card mb-2 card-answer" onclick="logAnswer(0)">
+            <div class="card-body" id="questionField1">
+              Antwort
+            </div>
+          </div>
+
+          <div class="card mb-2 card-answer" onclick="logAnswer(1)">
+            <div class="card-body" id="questionField2">
+              Antwort
+            </div>
+          </div>
+
+          <div class="card mb-2 card-answer" onclick="logAnswer(2)">
+            <div class="card-body" id="questionField3">
+             Antwort
+            </div>
+          </div>
+
+          <div class="card mb-2 card-answer" onclick="logAnswer(3)">
+            <div class="card-body" id="questionField4">
+              Antwort
+            </div>
+          </div>
+
+          <div class="question-footer">
+            <span>
+              <b id="currentQuestionText">1</b> von <b id="questionLengthText">5</b> Fragen
+            </span>
+            <button class="btn btn-primary" id="nextQuestionButton" onclick="nextQuestion()" disabled >nächste Frage</button>
+          </div>
+          <div class="progress-bar" id="progressBar">100%</div>
+
+        </div>
+      </div>
+    </div>
+  
     <script src="script.js"></script>
   </body>
 </html>
